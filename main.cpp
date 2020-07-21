@@ -8,11 +8,12 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //Obejto para manejar las traducciones
+    //Objeto para manejar las traducciones
     QTranslator traduccion;
     //Solicitando al usuario que seleccione un idioma
     QStringList idiomas;
     idiomas << "Italiano" << "Francés" << "Español";
+
     QString idiomaSeleccionado = QInputDialog::getItem(NULL,
                                    "Idioma",
                                    "Seleccione un idioma",
@@ -28,6 +29,7 @@ int main(int argc, char *argv[])
         a.installTranslator(&traduccion);
     }
 
+    //Ventana principal
     Principal w;
     w.show();
     return a.exec();
