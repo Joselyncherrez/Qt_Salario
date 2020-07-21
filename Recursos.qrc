@@ -7,5 +7,7 @@
         <file>Recursos/salario.png</file>
         <file>Recursos/salida.png</file>
         <file>Recursos/salvar.png</file>
+        <file>Salario1_fr_FR.qm</file>
+        <file>Salario1_it.qm</file>
     </qresource>
 </RCC>

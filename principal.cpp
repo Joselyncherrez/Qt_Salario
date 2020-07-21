@@ -46,7 +46,7 @@ void Principal::calcular()
     int horas = ui->inHoras->value();
 
     if (nombre == "" || horas == 0){
-        ui->statusbar->showMessage("No se han ingresado datos que se puedan calcular.",5000);
+        ui->statusbar->showMessage(tr("No se han ingresado datos que se puedan calcular."),5000);
         return;
     }
 
@@ -75,10 +75,10 @@ void Principal::calcular()
 
 // VISTA
     //Imprimir resultados
-    QString resultado = "\nObrero: " + nombre + "\n";
-    resultado += "Salario: $" + QString::number(salario) + "\n";
-    resultado += "Descuento (9.5%): $" + QString::number(descuento) + "\n";
-    resultado += "Salario neto: $" + QString::number(salario_neto) + "\n";
+    QString resultado = tr("\nObrero: ") + nombre + "\n";
+    resultado += tr ("Salario: $")+ QString::number(salario) + "\n";
+    resultado += tr ("Descuento (9.5%): $") + QString::number(descuento) + "\n";
+    resultado += tr ("Salario neto: $") + QString::number(salario_neto) + "\n";
     resultado += "--\n";
 
     ui->outResultado->appendPlainText(resultado);
@@ -87,19 +87,19 @@ void Principal::calcular()
 
 void Principal::guardar()
 {
-        QString fileName = QFileDialog::getSaveFileName(this,"Guardar datos", QDir::home().absolutePath() , "Archivo de Texto (*.txt)");
+        QString fileName = QFileDialog::getSaveFileName(this,tr("Guardar datos"), QDir::home().absolutePath() ,tr( "Archivo de Texto (*.txt)"));
         QFile data(fileName);
         if (data.open(QFile::WriteOnly | QFile::Truncate)) {
             QTextStream salida(&data);
             salida << ui->outResultado->toPlainText();
-            ui->statusbar->showMessage("Datos almacenados en: " + fileName, 5000);
+            ui->statusbar->showMessage(tr("Datos almacenados en: " )+ fileName, 5000);
         }
         data.close();
 }
 
 void Principal::abrir()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,"Abrir ", QDir::home().absolutePath() , "Archivo de Texto (*.txt)");
+    QString fileName = QFileDialog::getOpenFileName(this,tr ("Abrir "), QDir::home().absolutePath() , tr("Archivo de Texto (*.txt)"));
     QFile file(fileName);
     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream in(&file);

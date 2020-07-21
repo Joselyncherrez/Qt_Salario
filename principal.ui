@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Principal</string>
+   <string>Salario</string>
   </property>
   <property name="windowIcon">
    <iconset resource="Recursos.qrc">

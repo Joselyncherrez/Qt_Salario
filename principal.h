@@ -31,8 +31,6 @@ public slots:
     void nuevo();
 
 
-
-
 private slots:
     void on_actionAcerca_de_triggered();
 
